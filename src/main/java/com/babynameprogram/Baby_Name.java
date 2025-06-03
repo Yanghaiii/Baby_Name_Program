@@ -13,6 +13,12 @@ public class Baby_Name {
         this.count = count;
     }
 
+    // setter
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    // getters
     public String getName() {
         return name;
     }

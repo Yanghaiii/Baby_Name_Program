@@ -2,10 +2,12 @@ package com.babynameprogram;
 
 import java.io.FileReader;
 import java.util.LinkedList;
+import java.util.Scanner;
+
 import com.opencsv.CSVReader;
 
 public class Main {
-    private LinkedList<Baby_Name> namelist;
+    protected LinkedList<Baby_Name> namelist;
 
     public void read_Data(String filepath){
         namelist = new LinkedList<>();
@@ -21,10 +23,68 @@ public class Main {
             e.printStackTrace();
         }
     }
+    private void menu() {
+        System.out.println("BABY NAME PROGRAM");
+        System.out.println("---------------------------------");
+        System.out.println("[1] Adding One Baby Name");
+        System.out.println("[2] Adding Baby Name By Year");
+        System.out.println("[3] Editing One Baby Name");
+        System.out.println("[4] Deleting One Baby Name");
+        System.out.println("[5] Deleting Baby Name By Year");
+        System.out.println("[6] Reporting Baby Name By Year");
+        System.out.println("[7] Reporting Top 10 Baby Name");
+        System.out.println("[8] Exiting Program");
+        System.out.println("---------------------------------");
+        System.out.print("Choose menu between 1 and 8 : ");
+    }
+
+    private boolean valid_Menu_No(String input) {
+        if (!input.matches("[1-8]")) {
+            System.out.println("You must enter valid menu number between 1 and 8.");
+            return false;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         Main m = new Main();
         m.read_Data(("data/Baby_Names.csv"));
-        System.out.println(m.namelist.getLast());
+        System.out.println("Total Name List: " +m.namelist.getLast());
+        m.menu();
+
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            m.menu();
+            String input = sc.nextLine();
+            if (m.valid_Menu_No(input)) {
+                switch (input) {
+                    case "1":
+                        Adding_Baby_Name abn = new Adding_Baby_Name(m.namelist);
+                        abn.add_Name();
+                        break;
+                    case "2":
+                        System.out.println("Adding Baby Name By Year");
+                        break;
+                    case "3":
+                        System.out.println("Editing One Baby Name");
+                        break;
+                    case "4":
+                        System.out.println("Deleting One Baby Name");
+                        break;
+                    case "5":
+                        System.out.println("Deleting Baby Name By Year");
+                        break;
+                    case "6":
+                        System.out.println("Reporting Baby Name By Year");
+                        break;
+                    case "7":
+                        System.out.println("Reporting Top 10 Baby Name");
+                        break;
+                    default:
+                        System.out.println("Exiting Program....");
+                        System.exit(0);
+                }
+            }
+        }
     }
 }
