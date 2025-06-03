@@ -1,5 +1,6 @@
 package com.babynameprogram;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -100,4 +101,20 @@ public class Data_Write_Validation {
             e.printStackTrace();
         }
     }
+
+    public String get_File_Path() {
+        System.out.println("Enter File Path: ");
+        String filepath = sc.nextLine();
+        while (filepath.isEmpty()) {
+            System.out.println("File path must not be empty");
+            System.out.println("Enter File Path: ");
+            filepath = sc.nextLine();
+        }
+        if (!new File(filepath).exists()) {
+            System.out.println("File does not exist.");
+            filepath = get_File_Path();
+        }
+        return filepath;
+    }
+
 }
