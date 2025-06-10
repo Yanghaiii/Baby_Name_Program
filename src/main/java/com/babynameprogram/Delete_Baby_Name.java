@@ -12,22 +12,22 @@ public class Delete_Baby_Name {
         System.out.println("--------------------");
     }
 
-    public void delete_name() {
+    public void delete_Name() {
+        String searchName = dwv.get_Name();
+        String searchGender = dwv.get_Gender();
+        String searchYear = dwv.get_Year();
 
-        String name = dwv.get_Name();
-        String gender = dwv.get_Gender();
-        String year = dwv.get_Year();
-        while (!dwv.valid_Name(name, gender, year, namelist)) {
-            name = dwv.get_Name();
-            gender = dwv.get_Gender();
-            year = dwv.get_Year();
+        int index;
+        while ((index = dwv.search_Name(searchName, searchGender, searchYear, namelist)) < 0) {
+            searchName = dwv.get_Name();
+            searchGender = dwv.get_Gender();
+            searchYear = dwv.get_Year();
         }
-        String count = dwv.get_Count();
 
-        namelist.add(new Baby_Name(name, gender, Integer.parseInt(year), 0, Integer.parseInt(count)));
-        dwv.ranking(namelist, gender, year);
+        namelist.remove(index);
+        dwv.ranking(namelist, searchGender, searchYear);
         dwv.write(namelist);
-        System.out.println("Successfully Added A New Baby Name.");
+        System.out.println("Successfully Deleted A Baby Name.");
 
     }
 }
