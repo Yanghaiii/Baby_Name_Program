@@ -1,11 +1,5 @@
 package com.babynameprogram;
-
-import com.opencsv.CSVReader;
-
-import java.io.FileReader;
-import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class Adding_Baby_Name {
     private LinkedList<Baby_Name> namelist;
