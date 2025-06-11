@@ -9,7 +9,7 @@ public class Delete_Baby_Name_By_Year {
     public Delete_Baby_Name_By_Year(LinkedList<Baby_Name> namelist) {
         this.namelist = namelist;
         System.out.println("Deleting A Baby Name By Year");
-        System.out.println("--------------------");
+        System.out.println("----------------------------");
     }
 
     public void delete_Name() {
