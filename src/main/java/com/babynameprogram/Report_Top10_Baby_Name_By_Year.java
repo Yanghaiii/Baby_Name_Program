@@ -3,6 +3,8 @@ package com.babynameprogram;
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Report_Top10_Baby_Name_By_Year {
@@ -35,7 +37,10 @@ public class Report_Top10_Baby_Name_By_Year {
             }
         }
 
-        System.out.println("Male Baby Name in " +searchYear);
+        malelist.sort(Comparator.comparing(Baby_Name::getRank));    // for output
+        femalelist.sort(Comparator.comparing(Baby_Name::getRank));  // for output
+
+        System.out.println("Top 10 Male Baby Name in " +searchYear);
         AsciiTable at = new AsciiTable();
         at.addRule();   // open
         at.addRow(new Object[]{"No.", "Name", "Gender", "Year", "Rank", "Count"}).setTextAlignment(TextAlignment.CENTER);
@@ -52,7 +57,7 @@ public class Report_Top10_Baby_Name_By_Year {
         at.addRule();   //close again
         System.out.println(at.render());
 
-        System.out.println("Female Baby Name in " +searchYear);
+        System.out.println("Top 10 Female Baby Name in " +searchYear);
         at = new AsciiTable();
         at.addRule();   // open
         at.addRow(new Object[]{"No.", "Name", "Gender", "Year", "Rank", "Count"}).setTextAlignment(TextAlignment.CENTER);

@@ -83,7 +83,8 @@ public class Main {
                         rbn.report_Name();
                         break;
                     case "7":
-                        System.out.println("Reporting Top 10 Baby Name");
+                        Report_Top10_Baby_Name_By_Year rttbn = new Report_Top10_Baby_Name_By_Year(m.namelist);
+                        rttbn.report_Name();
                         break;
                     default:
                         System.out.println("Exiting Program....");
