@@ -5,14 +5,14 @@ import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
 
 import java.util.LinkedList;
 
-public class Report_Baby_Name_By_Year {
+public class Report_Top10_Baby_Name_By_Year {
     private LinkedList<Baby_Name> namelist;
     private Data_Write_Validation dwv = new Data_Write_Validation();
 
-    public Report_Baby_Name_By_Year(LinkedList<Baby_Name> namelist) {
+    public Report_Top10_Baby_Name_By_Year(LinkedList<Baby_Name> namelist) {
         this.namelist = namelist;
-        System.out.println("Report Baby Name By Year");
-        System.out.println("------------------------");
+        System.out.println("Report Top 10 Baby Name By Year");
+        System.out.println("-------------------------------");
     }
 
     public void report_Name() {
