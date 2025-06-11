@@ -1,5 +1,8 @@
 package com.babynameprogram;
 
+import de.vandermeer.asciitable.AsciiTable;
+import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;
+
 import java.util.LinkedList;
 
 public class Report_Baby_Name_By_Year {
@@ -32,7 +35,38 @@ public class Report_Baby_Name_By_Year {
             }
         }
 
-        System.out.println(".");
+        System.out.println("Male Baby Name in " +searchYear);
+        AsciiTable at = new AsciiTable();
+        at.addRule();   // open
+        at.addRow(new Object[]{"No.", "Name", "Gender", "Year", "Rank", "Count"}).setTextAlignment(TextAlignment.CENTER);
+        at.addRule();   // close
 
+        int no = 1;
+        for (Baby_Name b : malelist) {
+            at.addRow(new Object[]{no, b.getName(), b.getGender(), b.getYear(), b.getRank(), b.getCount()});
+            if (no == 10) {
+                break;
+            }
+            no++;
+        }
+        at.addRule();   //close again
+        System.out.println(at.render());
+
+        System.out.println("Female Baby Name in " +searchYear);
+        at = new AsciiTable();
+        at.addRule();   // open
+        at.addRow(new Object[]{"No.", "Name", "Gender", "Year", "Rank", "Count"}).setTextAlignment(TextAlignment.CENTER);
+        at.addRule();   // close
+
+        no = 1;
+        for (Baby_Name b : femalelist) {
+            at.addRow(new Object[]{no, b.getName(), b.getGender(), b.getYear(), b.getRank(), b.getCount()});
+            if (no == 10) {
+                break;
+            }
+            no++;
+        }
+        at.addRule();   //close again
+        System.out.println(at.render());
     }
 }

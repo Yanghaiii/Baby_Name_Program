@@ -79,7 +79,8 @@ public class Main {
                         dbnby.delete_Name();
                         break;
                     case "6":
-                        System.out.println("Reporting Baby Name By Year");
+                        Report_Baby_Name_By_Year rbn = new Report_Baby_Name_By_Year(m.namelist);
+                        rbn.report_Name();
                         break;
                     case "7":
                         System.out.println("Reporting Top 10 Baby Name");
