@@ -24,6 +24,10 @@ public class Delete_Baby_Name {
             searchYear = dwv.get_Year();
         }
 
+        if (!dwv.confirm_Delete()) {
+            return; // stopping and terminating the method to stop deleting
+        }
+
         namelist.remove(index);
         dwv.ranking(namelist, searchGender, searchYear);
         dwv.write(namelist);

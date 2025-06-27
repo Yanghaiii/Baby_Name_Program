@@ -19,6 +19,12 @@ public class Main {
             }
             cr.close();
         }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Error data column in csv file.");   // to output the error noti in the Test file
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Wrong Data Type in csv file.");
+        }
         catch (Exception e){
             e.printStackTrace();
         }
@@ -38,7 +44,7 @@ public class Main {
         System.out.print("Choose menu between 1 and 8 : ");
     }
 
-    private boolean valid_Menu_No(String input) {
+    protected boolean valid_Menu_No(String input) {
         if (!input.matches("[1-8]")) {
             System.out.println("You must enter valid menu number between 1 and 8.");
             return false;

@@ -153,4 +153,17 @@ public class Data_Write_Validation {
         return true;
     }
 
+    protected boolean confirm_Delete() {
+        System.out.println("Are you sure to delete? [Y/N] ");
+        String confirm = sc.nextLine();
+//        if (confirm.matches("[Y|N]") || confirm.matches("[y|n]")) {
+//        }
+
+        if (!confirm.toLowerCase().matches("[y|n]")) {
+            System.out.println("Enter only Y or N.");
+            confirm_Delete();
+        }
+        return confirm.equalsIgnoreCase("y");   // returning true or false in one line.
+    }
+
 }
